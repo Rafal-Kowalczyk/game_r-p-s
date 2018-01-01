@@ -5,7 +5,7 @@ var newGameBtn = document.getElementById('js-newGameButton');
 
 newGameBtn.addEventListener('click', newGame);
 
-//Buttons  game Rock, Papre, Scissors
+//Add var listener for buttons: Rock, Paper and Scissors
 var pickRock = document.getElementById('js-playerPick_rock'),
     pickPaper = document.getElementById('js-playerPick_paper'),
     pickScissors = document.getElementById('js-playerPick_scissors');
@@ -13,3 +13,13 @@ var pickRock = document.getElementById('js-playerPick_rock'),
 pickRock.addEventListener('click', function() { playerPick('rock') });
 pickPaper.addEventListener('click', function() { playerPick('paper') });
 pickScissors.addEventListener('click', function() { playerPick('scissors') });
+
+// Initial values
+var gameState = 'notStarted',  //started // ended
+    player = {
+        name: '',
+        score: 0
+    },
+    computer = {
+        score: 0
+    };
