@@ -61,19 +61,23 @@ function newGame() {
     setGameElements();
 
     playerNameElem.innerHTML = player.name;
-    // setGamePoints(); // This function has not been created yet
+    setGamePoints(); // This function has not been created yet
   }
 
 }
 
 // Function player pick
 function playerPick(playerPick) {
+    //console.log(playerPick);
+
     var computerPick = getComputerPick();
 
     playerPickElem.innerHTML = playerPick;
     computerPickElem.innerHTML = computerPick;
 
     checkRoundWinner(playerPick, computerPick);
+    setGamePoints();
+    checkFinalResult();
 }
 
 // Function computer pick
@@ -89,13 +93,6 @@ var playerPickElem = document.getElementById('js-playerPick'),
     computerPickElem = document.getElementById('js-computerPick'),
     playerResultElem = document.getElementById('js-playerResult'),
     computerResultElem = document.getElementById('js-computerResult');
-/*
-function playerPick(playerPick) {
-    var computerPick = getComputerPick();
-
-    playerPickElem.innerHTML = playerPick;
-    computerPickElem.innerHTML = computerPick;
-} */ 
 
 // Function awarding points
 function checkRoundWinner(playerPick, computerPick) {
@@ -115,10 +112,37 @@ function checkRoundWinner(playerPick, computerPick) {
 
     if (winnerIs == 'player') {
         playerResultElem.innerHTML = "Win!";
-        player.score++;
+        player.score ++;
     } else if (winnerIs == 'computer') {
         computerResultElem.innerHTML = "Win!";
-        computer.score++;
+        computer.score ++;
     }
 
+}
+
+// Result update
+function setGamePoints() {
+    playerPointsElem.innerHTML = player.score;
+    computerPointsElem.innerHTML = computer.score;
+}
+
+// final
+function checkFinalResult() {
+    if (player.score === 10) {
+        newGameElem.style.display = 'block';
+        pickElem.style.display = 'none';  
+      	newGameBtn.innerHTML = player.name + ' You, WIN !!!!';        
+     	gameState = 'ended';
+     	var finishGame = setTimeout(setGameElements, 2000);
+	
+
+    } else if (computer.score === 10) {
+        newGameElem.style.display = 'block';
+        pickElem.style.display = 'none';  
+        newGameBtn.innerHTML = player.name + ' You, LOST !';      
+    	gameState = 'ended';
+    	var finishGame = setTimeout(setGameElements, 2000);
+    	
+    }
+    
 }
