@@ -23,3 +23,27 @@ var gameState = 'notStarted',  //started // ended
     computer = {
         score: 0
     };
+
+// Displaying game elements     
+var newGameElem = document.getElementById('js-newGameElement'),
+    pickElem = document.getElementById('js-playerPickElement'),
+    resultsElem = document.getElementById('js-resultsTableElement');
+
+function setGameElements() {
+  switch(gameState) {
+    case 'started':
+        newGameElem.style.display = 'none';
+        pickElem.style.display = 'block';
+        resultsElem.style.display = 'block';
+      break;
+    case 'ended':
+        newGameBtn.innerText = 'Jeszcze raz';
+    case 'notStarted':
+    default:
+        newGameElem.style.display = 'block';
+        pickElem.style.display = 'none';
+        resultsElem.style.display = 'none';
+  }
+}
+
+setGameElements();    
