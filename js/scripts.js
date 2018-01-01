@@ -68,7 +68,12 @@ function newGame() {
 
 // Function player pick
 function playerPick(playerPick) {
-    console.log(playerPick);
+    var computerPick = getComputerPick();
+
+    playerPickElem.innerHTML = playerPick;
+    computerPickElem.innerHTML = computerPick;
+
+    checkRoundWinner(playerPick, computerPick);
 }
 
 // Function computer pick
@@ -84,13 +89,13 @@ var playerPickElem = document.getElementById('js-playerPick'),
     computerPickElem = document.getElementById('js-computerPick'),
     playerResultElem = document.getElementById('js-playerResult'),
     computerResultElem = document.getElementById('js-computerResult');
-
+/*
 function playerPick(playerPick) {
     var computerPick = getComputerPick();
 
     playerPickElem.innerHTML = playerPick;
     computerPickElem.innerHTML = computerPick;
-}  
+} */ 
 
 // Function awarding points
 function checkRoundWinner(playerPick, computerPick) {
