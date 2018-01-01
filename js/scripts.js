@@ -47,3 +47,8 @@ function setGameElements() {
 }
 
 setGameElements();    
+
+// Start the game
+var playerPointsElem = document.getElementById('js-playerPoints'),
+    playerNameElem = document.getElementById('js-playerName'),
+    computerPointsElem = document.getElementById('js-computerPoints');
