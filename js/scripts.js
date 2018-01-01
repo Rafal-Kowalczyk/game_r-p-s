@@ -71,7 +71,7 @@ function playerPick(playerPick) {
     console.log(playerPick);
 }
 
-// Funcion computer pick
+// Function computer pick
 var x = Math.random();
 
 function getComputerPick() {
@@ -79,6 +79,7 @@ function getComputerPick() {
     return possiblePicks[Math.floor(Math.random()*3)];
 }
 
+// We display the selection on the site
 var playerPickElem = document.getElementById('js-playerPick'),
     computerPickElem = document.getElementById('js-computerPick'),
     playerResultElem = document.getElementById('js-playerResult'),
